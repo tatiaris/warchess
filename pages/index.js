@@ -1,26 +1,37 @@
+import { useState } from 'react';
 import Chessboard from '../components/Chessboard';
 
 export default function Home() {
-  const pieces = [
+  const [pieces, setPieces] = useState([
     {
-      type: "bk",
+      team: "b",
+      type: "k",
       location: 2,
       alive: true
     },
     {
-      type: "wk",
+      team: "w",
+      type: "k",
       location: 17,
       alive: true
     },
     {
-      type: "bk",
+      team: "b",
+      type: "q",
       location: 3,
-      alive: false
+      alive: true
+    },
+    {
+      team: "w",
+      type: "q",
+      location: 16,
+      alive: true
     }
-  ]
+  ])
+
   return (
     <>
-      <Chessboard pieces={pieces}/>
+      <Chessboard pieces={pieces} updatePieces={setPieces}/>
     </>
   );
 }
