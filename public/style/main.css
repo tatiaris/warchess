@@ -1,0 +1,168 @@
+/* Global Variables */
+
+/* General Settings */
+* {
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hide;
+  color: inherit;
+  scrollbar-width: none;
+  font-weight: 400;
+  line-height: 1.25;
+  --square-size: min(100px, 10vw);
+}
+body {
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100% !important;
+  padding: 0 20px !important;
+  min-height: 50vh !important;
+}
+main {
+  padding: 0 !important;
+}
+
+button > a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+a {
+  color: var(--main-color);
+}
+a:hover {
+  cursor: url("/cursors/pointer.cur"), pointer;
+}
+button:hover {
+  cursor: url("/cursors/pointer.cur"), pointer !important; 
+}
+summary:hover {
+  cursor: url("/cursors/pointer.cur"), pointer !important; 
+}
+
+.navbar {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  gap: 20px;
+}
+.logo-container .title {
+  font-weight: bold;
+  user-select: none;
+  letter-spacing: 4px;
+}
+.navbar > .logo-container > a {
+  display: flex;
+  gap: 10px;
+}
+.navbar > .menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  letter-spacing: 2px;
+}
+.navbar a {
+  color: var(--dark);
+  text-align: center;
+}
+.menu > .btn-dropdown {
+  border: none !important;
+}
+
+a.underline::after {
+  transition: 250ms;
+  display: block;
+  content: '';
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+  position: relative;
+  top: 5px;
+}
+a.underline:hover::after {
+  width: 100%;
+}
+a.underline.active::after {
+  width: 100%;
+}
+
+.footer {
+  padding: 30px;
+  padding-bottom: 50px;
+}
+
+/* Chessboard */
+.chessboard {
+  width: max-content;
+  height: max-content;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Board pieces */
+.board-row {
+  display: flex;
+}
+.square {
+  width: var(--square-size);
+  height: var(--square-size);
+  display: flex;
+}
+.square.hovering {
+  box-shadow: inset 0 0 10px #000000;
+}
+.square-id {
+  font-size: 0.8rem;
+  color: grey;
+}
+.square.light {
+  background-color: #c7d8e0;
+}
+.square.dark {
+  background-color: #6b93a7;
+}
+.square.puddle {
+  background-color: #fdd8a0;
+}
+.square.hole {
+  background-color: #000;
+}
+.square.transparent {
+  background-color: transparent;
+}
+
+.piece {
+  width: var(--square-size);
+  height: var(--square-size);
+  background-size: 100%;
+  position: absolute;
+  transition: 0ms;
+}
+.piece:hover {
+  cursor: grab;
+}
+.piece.dragging {
+  cursor: grabbing;
+}
+.piece.bk {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/game_room/150/bk.png");
+}
+.piece.wk {
+  background-image: url("https://images.chesscomfiles.com/chess-themes/pieces/game_room/150/wk.png");
+}
